@@ -345,8 +345,8 @@ llvm_all_cmake_vars = select({
 
 llvm_linkopts = select({
     "@org_tensorflow//tensorflow:windows": [],
-    "@org_tensorflow//tensorflow:freebsd": ["-ldl", "-lm", "-lpthread", "-lexecinfo"],
-    "//conditions:default": ["-ldl", "-lm", "-lpthread"],
+    "@org_tensorflow//tensorflow:freebsd": ["-ldl", "-lm", "-lexecinfo"],
+    "//conditions:default": ["-ldl", "-lm"],
 })
 
 llvm_defines = select({

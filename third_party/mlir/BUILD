@@ -108,7 +108,6 @@ cc_library(
     includes = ["include"],
     linkopts = [
         "-lm",
-        "-lpthread",
     ],
     deps = [
         ":Analysis",
@@ -3014,7 +3013,6 @@ cc_binary(
     ]),
     linkopts = [
         "-lm",
-        "-lpthread",
     ],
     deps = [
         ":MlirTableGenMain",
@@ -3033,7 +3031,6 @@ cc_binary(
     ]),
     linkopts = [
         "-lm",
-        "-lpthread",
     ],
     deps = [
         ":IR",

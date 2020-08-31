@@ -27,7 +27,6 @@ ifeq ($(TARGET),bbb)
 
   LIBS := \
     -lstdc++ \
-    -lpthread \
     -lm \
     -ldl \
     -lrt

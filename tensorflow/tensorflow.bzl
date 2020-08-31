@@ -266,7 +266,7 @@ def if_nccl(if_true, if_false = []):
 # Linux systems may required -lrt linker flag for e.g. clock_gettime
 # see https://github.com/tensorflow/tensorflow/issues/15129
 def lrt_if_needed():
-    lrt = ["-lrt"]
+    lrt = []
     return select({
         clean_dep("//tensorflow:linux_aarch64"): lrt,
         clean_dep("//tensorflow:linux_x86_64"): lrt,
@@ -348,8 +348,8 @@ def tf_copts(
             clean_dep("//tensorflow:macos"): [],
             clean_dep("//tensorflow:windows"): get_win_copts(is_external),
             clean_dep("//tensorflow:ios"): [],
-            clean_dep("//tensorflow:no_lgpl_deps"): ["-D__TENSORFLOW_NO_LGPL_DEPS__", "-pthread"],
-            "//conditions:default": ["-pthread"],
+            clean_dep("//tensorflow:no_lgpl_deps"): ["-D__TENSORFLOW_NO_LGPL_DEPS__", ""],
+            "//conditions:default": [""],
         })
     )
 
@@ -730,7 +730,6 @@ def tf_native_cc_binary(
                 "-lm",
             ],
             "//conditions:default": [
-                "-lpthread",
                 "-lm",
             ],
         }) + linkopts + _rpath_linkopts(name),
@@ -1055,7 +1054,6 @@ def tf_cc_test(
                 "-lm",
             ],
             "//conditions:default": [
-                "-lpthread",
                 "-lm",
             ],
         }) + linkopts + _rpath_linkopts(name),
@@ -1206,7 +1204,7 @@ def tf_gpu_only_cc_test(
         features = if_cuda(["-use_header_modules"]),
         data = data + tf_binary_dynamic_kernel_dsos(),
         deps = [":" + gpu_lib_name],
-        linkopts = if_not_windows(["-lpthread", "-lm"]) + linkopts + _rpath_linkopts(name),
+        linkopts = if_not_windows(["", "-lm"]) + linkopts + _rpath_linkopts(name),
         linkstatic = linkstatic or select({
             # cc_tests with ".so"s in srcs incorrectly link on Darwin
             # unless linkstatic=1.
@@ -1296,7 +1294,6 @@ def tf_cc_test_mkl(
                 ],
                 clean_dep("//tensorflow:windows"): [],
                 "//conditions:default": [
-                    "-lpthread",
                     "-lm",
                 ],
             }) + _rpath_linkopts(src_to_test_name(src)),

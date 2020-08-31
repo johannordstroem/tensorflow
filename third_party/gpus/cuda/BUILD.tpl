@@ -58,7 +58,6 @@ cc_library(
         ":freebsd": [],
         "//conditions:default": ["-ldl"],
     }) + [
-        "-lpthread",
         %{cudart_static_linkopt}
     ],
 )

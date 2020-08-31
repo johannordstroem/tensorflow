@@ -27,7 +27,6 @@ ifeq ($(TARGET),aarch64)
 
   LIBS := \
     -lstdc++ \
-    -lpthread \
     -lm \
     -ldl
 

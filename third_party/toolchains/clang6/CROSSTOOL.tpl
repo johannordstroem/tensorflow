@@ -579,6 +579,5 @@ toolchain {
   # https://stackoverflow.com/a/35015415
   linker_flag: "-lstdc++"
   linker_flag: "-lm"
-  linker_flag: "-lpthread"
   linker_flag: "-l:/lib/x86_64-linux-gnu/libc-2.19.so"
 }

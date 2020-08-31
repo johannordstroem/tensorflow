@@ -26,7 +26,7 @@ cc_library(
         "nnapi_implementation.h",
     ],
     linkopts = if_nnapi(["-ldl"]) + if_nnapi(
-        supported = ["-lrt"],
+        supported = [""],
         supported_android = [],
     ),
     deps = [

@@ -49,7 +49,6 @@ cc_library(
         "@org_tensorflow//tensorflow:windows": [],
         "//conditions:default": [
             "-ldl",
-            "-lpthread",
         ],
     }),
     visibility = ["//visibility:public"],

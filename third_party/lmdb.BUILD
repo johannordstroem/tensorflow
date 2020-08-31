@@ -20,7 +20,7 @@ cc_library(
     ],
     linkopts = select({
         ":windows": ["-DEFAULTLIB:advapi32.lib"],  # InitializeSecurityDescriptor, SetSecurityDescriptorDacl
-        "//conditions:default": ["-lpthread"],
+        "//conditions:default": [""],
     }),
     visibility = ["//visibility:public"],
 )

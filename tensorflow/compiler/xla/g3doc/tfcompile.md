@@ -273,7 +273,7 @@ cc_binary(
         "//third_party/eigen3",
     ],
     linkopts = [
-          "-lpthread",
+          "",
     ]
 )
 ```

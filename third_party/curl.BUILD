@@ -319,7 +319,7 @@ cc_library(
             "-DEFAULTLIB:Normaliz.lib",
         ],
         "//conditions:default": [
-            "-lrt",
+            "",
         ],
     }),
     visibility = ["//visibility:public"],

@@ -46,7 +46,7 @@ def main():
 
   debug_flags = [
       '-DTRISYCL_DEBUG', '-DBOOST_LOG_DYN_LINK', '-DTRISYCL_TRACE_KERNEL',
-      '-lpthread', '-lboost_log', '-g', '-rdynamic'
+      '', '-lboost_log', '-g', '-rdynamic'
   ]
 
   opt_flags = ['-DNDEBUG', '-DBOOST_DISABLE_ASSERTS', '-O3']
